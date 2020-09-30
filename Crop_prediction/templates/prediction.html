@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>Major Crop Yield Prediction</h1>
+
+
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="District">Choose District:</label>
+        <select id="District" name="Districts">
+    <option value="Barishal">Barishal</option>
+    <option value="Bogra">Bogra</option>
+    <option value="Chittagong">Chittagong</option>
+    <option value="Comilla">Comilla</option>
+    <option value="Dhaka">Dhaka</option>
+    <option value="Dinajpur">Dinajpur</option>
+    <option value="Faridpur">Faridpur</option>
+    <option value="Jessore">Jessore</option>
+    <option value="Khulna">Khulna</option>
+    <option value="Mymensingh">Mymensingh</option>
+    <option value="Noakhali">Noakhali</option>
+    <option value="Pabna">Pabna</option>
+    <option value="Patuakhali">Patuakhali</option>
+    <option value="Rajshahi">Rajshahi</option>
+    <option value="Rangamati">Rangamati</option>
+    <option value="Rangpur">Rangpur</option>
+    <option value="sylhet">sylhet</option>
+    <option value="Tangail">Tangail</option>
+  </select>
+
+        <label for="Crops">Choose Crops:</label>
+        <select id="Crops" name="Crop">
+    <option value="Aman">Aman</option>
+    <option value="Aus">Aus</option>
+    <option value="Boro">Boro</option>
+    <option value="Jute">Jute</option>
+
+  </select>
+
+
+        <label for="Area">Area:</label>
+        <input type="text" name="Area">
+
+        <label for="Year">Year:</label>
+        <input type="text" name="Year"> <br><br>
+
+        <input type="submit">
+    </form> <br><br> {% if Crop == 'Aman' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>November, December and January</b>. if you harvest {{ Crop}} in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production
+        will be <b>{{ y_pred }} </b>Matric Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %} {% if Crop == 'Aus' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>July and August</b>. if you harvest {{ Crop}} in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production will be <b>{{ y_pred }} </b>Matric
+        Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %}{% if Crop == 'Boro' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>April, May and June</b>. if you harvest {{ Crop}} in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production will be
+        <b>{{ y_pred }} </b>Matric Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %} {% if Crop == 'Jute' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>March, April, May and June</b>. if you harvest Aman in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production will
+        be <b>{{ y_pred }} </b>Matric Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %}
+</body>
+
+</html>
